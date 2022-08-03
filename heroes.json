@@ -1,0 +1,50 @@
+{
+  "heroes": [
+    {
+      "id": "cf9fa4ab-3239-417f-9269-c241a4decb56",
+      "name": "Yersain",
+      "description": "i can fly like Batterfly",
+      "element": "wind"
+    },
+    {
+      "id": "b3a2d161-4b9a-437e-b4eb-eba4ab8eb2dc",
+      "name": "Spider Man",
+      "description": "i have a power like a spider",
+      "element": "fire"
+    },
+    {
+      "id": "f2d702d9-a165-4ca4-bdc4-27494aa15872",
+      "name": "Petr Jan",
+      "description": "idk",
+      "element": "wind"
+    },
+    {
+      "id": "b6ddc08e-6473-4c8d-a7a3-552d93b5873f",
+      "name": "HomeLander",
+      "description": "like super man",
+      "element": "water"
+    }
+  ],
+  "filters": [
+    {
+      "name": "all",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "className": "btn-secondary"
+    }
+  ]
+}
