@@ -11,12 +11,6 @@
       "name": "HomeLander",
       "description": "like super man",
       "element": "water"
-    },
-    {
-      "id": "8f07dc35-fccb-4098-a405-adb224580571",
-      "name": "A-Train",
-      "description": "fastest",
-      "element": "wind"
     }
   ],
   "filters": [

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
-import { heroCreateError, heroCreateRequest, heroCreateSuccess } from "../../actions";
+import { heroCreateError, heroCreateRequest, heroCreateSuccess } from "../heroesList/HeroesSlice";
 import { useHttp } from "../../hooks/http.hook";
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +8,7 @@ const HeroesAddForm = () => {
     const [nameValue, setNameValue] = useState('');
     const [descrValue, setDescrValue] = useState('');
     const [element, setElement] = useState('');
-    const {filters, filtersLoadingStatus} = useSelector(state => state);
+    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
 
     const dispatch = useDispatch();
     const {request} = useHttp();
@@ -88,7 +88,7 @@ const HeroesAddForm = () => {
                     name="element"
                     value={element}
                     onChange={(e) => setElement(e.target.value)}>
-                    <option >Я владею элементом...</option>
+                    <option value=''>Я владею элементом...</option>
                     {renderFilters(filters, filtersLoadingStatus)}
                 </select>
             </div>

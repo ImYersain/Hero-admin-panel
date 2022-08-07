@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'; 
-import heroesReducer from '../reducers/heroesReducer';
-import filtersReducer from '../reducers/filtersReducer';
+import heroesSlice from '../components/heroesList/HeroesSlice';
+import filtersSlice from '../components/heroesFilters/HeroesFiltersSlice';
 
 
 // const rootReducer = combineReducers({
@@ -17,8 +17,8 @@ import filtersReducer from '../reducers/filtersReducer';
 
 const store = configureStore({
     reducer: {
-        heroes: heroesReducer,
-        filters: filtersReducer
+        heroes: heroesSlice,
+        filters: filtersSlice
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware(),
     devTools: process.env.NODE_ENV !== 'production'
