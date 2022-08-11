@@ -39,8 +39,5 @@ const {actions, reducer} = heroesFiltersSlice;
 
 export default reducer;
 export const {
-    filtersFetching,
-    filtersFetched,
-    filtersFetchingError,
     activeFilterChanged
 } = actions;

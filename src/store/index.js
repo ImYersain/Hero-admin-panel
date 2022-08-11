@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'; 
-import heroesSlice from '../components/heroesList/HeroesSlice';
 import filtersSlice from '../components/heroesFilters/HeroesFiltersSlice';
+import {apiSlice} from '../api/apiSlice';
 
 
 // const rootReducer = combineReducers({
@@ -17,10 +17,10 @@ import filtersSlice from '../components/heroesFilters/HeroesFiltersSlice';
 
 const store = configureStore({
     reducer: {
-        heroes: heroesSlice,
-        filters: filtersSlice
+        filters: filtersSlice,
+        [apiSlice.reducerPath]: apiSlice.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware(),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware),
     devTools: process.env.NODE_ENV !== 'production'
 })
 

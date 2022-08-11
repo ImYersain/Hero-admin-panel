@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
-import { heroCreateError, heroCreateRequest, heroCreateSuccess } from "../heroesList/HeroesSlice";
-import { useHttp } from "../../hooks/http.hook";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useCreateHeroMutation } from '../../api/apiSlice';
+
 
 const HeroesAddForm = () => {
     const [nameValue, setNameValue] = useState('');
@@ -10,8 +10,7 @@ const HeroesAddForm = () => {
     const [element, setElement] = useState('');
     const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
 
-    const dispatch = useDispatch();
-    const {request} = useHttp();
+    const [createHero, {isLoading, isError}] = useCreateHeroMutation()
 
     
     const onSubmitHandler = (e) => {
@@ -22,11 +21,8 @@ const HeroesAddForm = () => {
             description: descrValue,
             element: element
         }
-        
-        dispatch(heroCreateRequest());
-        request('http://localhost:3001/heroes', 'POST', JSON.stringify(newHero))
-            .then(dispatch(heroCreateSuccess(newHero)))
-            .catch(err => dispatch(heroCreateError(err)));
+
+        createHero(newHero).unwrap();
 
         setNameValue('');
         setDescrValue('');
@@ -48,6 +44,12 @@ const HeroesAddForm = () => {
             return <option key={name} value={name}>{name}</option>
             })
         }
+    }
+
+    if(isLoading){
+        return 'Please wait...';
+    } else if(isError){
+        return 'Something is went wrong';
     }
 
     
